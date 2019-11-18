@@ -3,9 +3,38 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+    },
+    header: {
+        top: 0,
+        width: '100%',
+        height: '40%',
+        backgroundColor: 'orange',
+        borderBottomLeftRadius: 30,
+        borderBottomRightRadius: 30,
         alignItems: 'center',
         justifyContent: 'center',
-        marginHorizontal: 50,
+        marginBottom: 20,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+        elevation: 10,
+    },
+    title: {
+        color: 'white',
+        fontSize: 34,
+    },
+    subTitle: {
+        color: 'white',
+        fontSize: 24,
+    },
+    inputContainer: {
+        height: '100%',
+        width: '100%',
+        paddingHorizontal: 50,
     },
     input: {
         borderWidth: 1,
