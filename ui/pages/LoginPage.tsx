@@ -1,18 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, TouchableNativeFeedback } from 'react-native';
+import { Text, View, TextInput, TouchableNativeFeedback } from 'react-native';
 import styles from '../../style/login';
 import { LinearGradient } from 'expo-linear-gradient';
 
 const LoginPage = (props: any) => {
     return (
         <View style={styles.container}>
-            <LinearGradient colors={['#ff1f93', '#808bff']} style={styles.header}>
+            <LinearGradient colors={['#808bff', '#ff1f93', ]} style={styles.header}>
                 <Text style={styles.title}>Jagra</Text>
                 <Text style={styles.subTitle}>Where Tasks Enpower People</Text>
             </LinearGradient>
             <View style={styles.inputContainer}>
-                <TextInput placeholder="User Name" style={styles.input} />
-                <TextInput placeholder="Password" style={styles.input} />
+                <Text style={styles.label}>User Name</Text>
+                <TextInput placeholder="username..." style={styles.input} />
+                <Text style={styles.label}>Password</Text>
+                <TextInput placeholder="password..." style={styles.input} />
                 <TouchableNativeFeedback>
                     <View style={styles.button}>
                         <Text>Login</Text>

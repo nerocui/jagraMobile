@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        // backgroundColor: '#59acff',
     },
     header: {
         top: 0,
@@ -31,6 +32,10 @@ const styles = StyleSheet.create({
         color: 'white',
         fontSize: 24,
     },
+    join: {
+        color: 'white',
+        fontSize: 16,
+    },
     inputContainer: {
         height: '100%',
         width: '100%',
@@ -44,6 +49,9 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         paddingHorizontal: 10,
     },
+    label: {
+        fontSize: 18
+    },
     button: {
         height: 50,
         width: '100%',
@@ -51,6 +59,14 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+        elevation: 10,
     },
     link: {
         height: 50,

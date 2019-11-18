@@ -6,7 +6,7 @@ import { Transition } from 'react-native-reanimated';
 import LoginPage from './ui/pages/LoginPage';
 import SignupPage from './ui/pages/SignupPage';
 
-const AppNavigator = createAnimatedSwitchNavigator({
+const AppNavigator = createStackNavigator({
   Login: {
     screen: LoginPage,
     navigationOptions: {
@@ -22,12 +22,12 @@ const AppNavigator = createAnimatedSwitchNavigator({
 },
 {
   initialRouteName: 'Login',
-  transition: (
-    <Transition.Together>
-      <Transition.Out type="slide-top" durationMs={600} interpolation="easeOut" />
-      <Transition.In  type="slide-bottom" durationMs={600} interpolation="easeIn" />
-    </Transition.Together>
-  )
+  // transition: (
+  //   <Transition.Together>
+  //     <Transition.Out type="slide-top" durationMs={600} interpolation="easeOut" />
+  //     <Transition.In  type="slide-bottom" durationMs={600} interpolation="easeIn" />
+  //   </Transition.Together>
+  // )
 });
 
 export default createAppContainer(AppNavigator);
