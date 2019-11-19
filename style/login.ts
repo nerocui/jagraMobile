@@ -42,10 +42,11 @@ const styles = StyleSheet.create({
         paddingHorizontal: 50,
     },
     input: {
-        borderWidth: 1,
+        borderWidth: 2,
         width: '100%',
-        height: 40,
+        height: 45,
         borderRadius: 10,
+        borderColor: '#744efc',
         marginBottom: 10,
         paddingHorizontal: 10,
     },

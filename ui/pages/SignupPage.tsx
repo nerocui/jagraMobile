@@ -1,11 +1,14 @@
-import React from 'react';
-import { Text, View, TextInput, TouchableNativeFeedback } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, TextInput, TouchableNativeFeedback, KeyboardAvoidingView  } from 'react-native';
 import styles from '../../style/login';
 import { LinearGradient } from 'expo-linear-gradient';
+import Axios from 'axios';
 
 const SignupPage = (props: any) => {
+    const url = 'https://172.17.81.16:5001/api/auth/register';
+    const [log, SetLog] = useState('');
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView  style={styles.container} behavior="padding">
             <LinearGradient colors={['#808bff', '#ff1f93', ]} style={styles.header}>
                 <Text style={styles.title}>Jagra</Text>
                 <Text style={styles.join}>Join Today To Get a Better Handle of Your Tasks</Text>
@@ -17,7 +20,18 @@ const SignupPage = (props: any) => {
                 <TextInput placeholder="password..." style={styles.input} />
                 <Text style={styles.label}>Password Confirm</Text>
                 <TextInput placeholder="password..." style={styles.input} />
-                <TouchableNativeFeedback>
+                <TouchableNativeFeedback onPress={() => {
+                    SetLog("Sending Request...");
+                    return Axios.post(url, {username: 'newuser', password: 'password'})
+                        .then(res => {
+                            console.log(res);
+                            SetLog(res.toString());
+                        })
+                        .catch(err => {
+                            console.log(err);
+                            SetLog(err.toString());
+                        });
+                }}>
                     <View style={styles.button}>
                         <Text>Signup</Text>
                     </View>
@@ -27,8 +41,11 @@ const SignupPage = (props: any) => {
                         <Text>Already Have an Account? Login Here.</Text>
                     </View>
                 </TouchableNativeFeedback>
+                <View>
+                    <Text>{log}</Text>
+                </View>
             </View>
-        </View>
+        </KeyboardAvoidingView >
     );
 };
 
