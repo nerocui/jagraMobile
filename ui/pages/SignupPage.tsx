@@ -39,6 +39,10 @@ const SignupPage = (props: any) => {
         }
     };
 	const OnSubmit = async () => {
+        if (password !== passwordConfirm || username === '' || password === '') {
+            SetLog("Invalid Entries");
+            return;
+        }
         props.navigation.navigate('Loading');
         const res = await Register(username, password);
         if (res && res.status === 201) {

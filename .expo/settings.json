@@ -1,8 +1,8 @@
 {
+  "urlRandomness": "v9-ne4",
   "hostType": "lan",
   "lanType": "ip",
   "dev": true,
   "minify": false,
-  "urlRandomness": "2i-2aw",
   "https": false
 }
