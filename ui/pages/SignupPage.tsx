@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Text, View, TextInput, TouchableNativeFeedback, KeyboardAvoidingView, NativeSyntheticEvent, TextInputChangeEventData  } from 'react-native';
 import styles from '../../style/login';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -9,15 +9,27 @@ const SignupPage = (props: any) => {
     const [log, SetLog] = useState('');
 
     const [username, SetUsername] = useState('');
-	const [password, SetPassword] = useState('');
+    const [password, SetPassword] = useState('');
+    const [passwordConfirm, SetConfirmPassword] = useState('');
 	const OnChangeUsername = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
         e.preventDefault();
 		SetUsername(e.nativeEvent.text);
 	};
 	const OnChangePassword = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
         e.preventDefault();
-		SetPassword(e.nativeEvent.text);
+        SetPassword(e.nativeEvent.text);
     };
+    const OnChangeConfirmPassword = (e: NativeSyntheticEvent<TextInputChangeEventData>) => {
+        e.preventDefault();
+        SetConfirmPassword(e.nativeEvent.text);
+    };
+    useEffect(() => {
+        if (password === passwordConfirm) {
+            SetLog("");
+        } else {
+            SetLog("Passwords Must Match");
+        }
+    }, [password, passwordConfirm]);
     const Register = async (username: string, password: string) => {
         try {
             return await Axios.post(url, {username, password});
@@ -51,7 +63,7 @@ const SignupPage = (props: any) => {
                 <Text style={styles.label}>Password</Text>
                 <TextInput textContentType="newPassword" secureTextEntry placeholder="password..." style={styles.input} value={password} onChange={OnChangePassword}/>
                 <Text style={styles.label}>Password Confirm</Text>
-                <TextInput textContentType="newPassword" secureTextEntry placeholder="password..." style={styles.input} />
+                <TextInput textContentType="newPassword" secureTextEntry placeholder="password..." style={styles.input} value={passwordConfirm} onChange={OnChangeConfirmPassword}/>
                 <TouchableNativeFeedback onPress={OnSubmit}>
                     <View style={styles.button}>
                         <Text>Signup</Text>
