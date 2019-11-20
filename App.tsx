@@ -5,6 +5,7 @@ import createAnimatedSwitchNavigator from 'react-navigation-animated-switch';
 import { Transition } from 'react-native-reanimated';
 import LoginPage from './ui/pages/LoginPage';
 import SignupPage from './ui/pages/SignupPage';
+import LoadingScreen from './ui/pages/LoadingScreen';
 
 const AppNavigator = createStackNavigator({
   Login: {
@@ -18,7 +19,13 @@ const AppNavigator = createStackNavigator({
     navigationOptions: {
       header: null,
     }
-  }
+  },
+  Loading: {
+    screen: LoadingScreen,
+    navigationOptions: {
+      header: null,
+    }
+  },
 },
 {
   initialRouteName: 'Login',
