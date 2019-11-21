@@ -2,6 +2,8 @@ import React from 'react';
 import { Text, View, TextInput, TouchableNativeFeedback } from 'react-native';
 import styles from '../../style/login';
 import { LinearGradient } from 'expo-linear-gradient';
+import AsyncStorage from '@react-native-community/async-storage';
+import * as Action from 'jagrastate/action';
 
 const LoginPage = (props: any) => {
     return (

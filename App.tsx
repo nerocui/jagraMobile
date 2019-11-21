@@ -1,11 +1,12 @@
 import React from 'react';
 import { createAppContainer } from '@react-navigation/native';
 import { createStackNavigator } from 'react-navigation-stack';
-import createAnimatedSwitchNavigator from 'react-navigation-animated-switch';
-import { Transition } from 'react-native-reanimated';
-import LoginPage from './ui/pages/LoginPage';
-import SignupPage from './ui/pages/SignupPage';
-import LoadingScreen from './ui/pages/LoadingScreen';
+import { PersistGate } from 'redux-persist/integration/react';
+import { Provider } from 'react-redux';
+import LoginPage from './src/ui/pages/LoginPage';
+import SignupPage from './src/ui/pages/SignupPage';
+import LoadingScreen from './src/ui/pages/LoadingScreen';
+import { store, persistor } from './src/store';
 
 const AppNavigator = createStackNavigator({
   Login: {
@@ -37,5 +38,15 @@ const AppNavigator = createStackNavigator({
   // )
 });
 
-export default createAppContainer(AppNavigator);
+const AppContainer = createAppContainer(AppNavigator);
 
+export default function App() {
+  return (
+    // Redux: Global Store
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <AppContainer />
+      </PersistGate>
+    </Provider>
+  );
+};
