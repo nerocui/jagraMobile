@@ -58,16 +58,39 @@ const SignupPage = (props: any) => {
     return (
         <KeyboardAvoidingView  style={styles.container} behavior="padding">
             <LinearGradient colors={['#808bff', '#ff1f93', ]} style={styles.header}>
-                <Text style={styles.title}>Jagra</Text>
-                <Text style={styles.join}>Join Today To Get a Better Handle of Your Tasks</Text>
+                <Text style={styles.title}>
+                    Jagra
+                </Text>
+                <Text style={styles.join}>
+                    Join Today To Get a Better Handle of Your Tasks
+                </Text>
             </LinearGradient>
             <View style={styles.inputContainer}>
             <Text style={styles.label}>User Name</Text>
-                <TextInput placeholder="username..." style={styles.input} value={username} onChange={OnChangeUsername}/>
+                <TextInput
+                    placeholder="username..."
+                    style={styles.input}
+                    value={username}
+                    onChange={OnChangeUsername}
+                />
                 <Text style={styles.label}>Password</Text>
-                <TextInput textContentType="newPassword" secureTextEntry placeholder="password..." style={styles.input} value={password} onChange={OnChangePassword}/>
+                <TextInput
+                    textContentType="newPassword"
+                    secureTextEntry
+                    placeholder="password..."
+                    style={styles.input}
+                    value={password}
+                    onChange={OnChangePassword}
+                />
                 <Text style={styles.label}>Password Confirm</Text>
-                <TextInput textContentType="newPassword" secureTextEntry placeholder="password..." style={styles.input} value={passwordConfirm} onChange={OnChangeConfirmPassword}/>
+                <TextInput
+                    textContentType="newPassword"
+                    secureTextEntry
+                    placeholder="password..."
+                    style={styles.input}
+                    value={passwordConfirm}
+                    onChange={OnChangeConfirmPassword}
+                />
                 <TouchableNativeFeedback onPress={OnSubmit}>
                     <View style={styles.button}>
                         <Text>Signup</Text>

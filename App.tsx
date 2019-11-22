@@ -3,12 +3,21 @@ import { createAppContainer } from '@react-navigation/native';
 import { createStackNavigator } from 'react-navigation-stack';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
-import LoginPage from './src/ui/pages/LoginPage';
-import SignupPage from './src/ui/pages/SignupPage';
-import LoadingScreen from './src/ui/pages/LoadingScreen';
+import LoginPage from './src/ui/screen/LoginScreen';
+import SignupPage from './src/ui/screen/SignupScreen';
+import LoadingScreen from './src/ui/screen/LoadingScreen';
 import { store, persistor } from './src/store';
+import SplashScreen from './src/ui/screen/SplashScreen';
+import DashboardScreen from './src/ui/screen/DashboardScreen';
+import SettingsScreen from './src/ui/screen/SettingsScreen';
 
 const AppNavigator = createStackNavigator({
+  Splash: {
+    screen: SplashScreen,
+    navigationOptions: {
+      header: null,
+    },
+  },
   Login: {
     screen: LoginPage,
     navigationOptions: {
@@ -27,9 +36,21 @@ const AppNavigator = createStackNavigator({
       header: null,
     }
   },
+  Dashboard: {
+    screen: DashboardScreen,
+    navigationOptions: {
+      header: null,
+    }
+  },
+  Settings: {
+    screen: SettingsScreen,
+    navigationOptions: {
+      header: null,
+    }
+  },
 },
 {
-  initialRouteName: 'Login',
+  initialRouteName: 'Splash',
   // transition: (
   //   <Transition.Together>
   //     <Transition.Out type="slide-top" durationMs={600} interpolation="easeOut" />
