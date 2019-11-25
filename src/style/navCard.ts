@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     icon: {
         alignSelf: 'center',
         height: wp('25%'),
+        width: wp('25%'),
     }
 });
 

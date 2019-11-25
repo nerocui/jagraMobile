@@ -3,8 +3,8 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 const styles = StyleSheet.create({
     container: {
-        width: '45%',
-        height: wp('45%'),
+        width: '47%',
+        height: wp('47%'),
         alignContent: "center",
         justifyContent: "center",
         marginTop: 30,
