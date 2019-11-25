@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: 70,
-        padding: 10,
         alignContent: "center",
         justifyContent: "center",
         marginTop: 30,
@@ -20,6 +19,16 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.44,
         shadowRadius: 3,
         elevation: 3,
+    },
+    horizontalStack: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingHorizontal: 5,
+    },
+    greeting: {
+        fontSize: 18,
     },
 });
 

@@ -1,15 +1,39 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { connect } from 'react-redux';
 import styles from '../../style/persona';
+import { Avatar } from 'react-native-elements';
+import { State } from 'jagrastate/models';
+import { capitalizeFirstLetter } from 'jagrastate/utils/StringUtils';
+import { Icon } from 'react-native-elements';
+import posed from 'react-native-pose';
 
-const PersonaHeader = () => {
+const StyledContainer = posed.View({
+    pressed: { opacity: 0.6, scale: 0.95 },
+    normal: { opacity: 1, scale: 1 },
+});
+
+const PersonaHeader = (props: any) => {
+
+    const [pressed, SetPressed] = useState(false);
+
     return (
-        <View style={styles.container}>
-            <Text>
-                Persona
-            </Text>
-        </View>
+        <StyledContainer style={styles.container} pose={pressed? 'pressed' : 'normal'}>
+            <TouchableWithoutFeedback onPressIn={() => SetPressed(true)} onPressOut={() => SetPressed(false)}>
+                <View style={styles.horizontalStack}>
+                    <Avatar rounded title={props.user.username[0].toUpperCase()} />
+                    <Text style={styles.greeting}>Hello {capitalizeFirstLetter(props.user.username)}</Text>
+                    <Icon style={styles.greeting} name='keyboard-arrow-right'/>
+                </View>
+            </TouchableWithoutFeedback>
+        </StyledContainer>
     );
 };
 
-export default PersonaHeader;
+function MapStateToProps(state: State) {
+    return {
+        user: state.AuthState,
+    };
+}
+
+export default connect(MapStateToProps)(PersonaHeader);
