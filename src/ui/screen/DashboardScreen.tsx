@@ -1,12 +1,12 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, ShadowPropTypesIOS } from 'react-native';
 import PersonaHeader from '../components/PersonaHeader';
 import styles from '../../style/dashboard';
 
-const DashboardScreen = () => {
+const DashboardScreen = (props: any) => {
     return (
         <View style={styles.container}>
-            <PersonaHeader />
+            <PersonaHeader navigation={props.navigation}/>
         </View>
     );
 };

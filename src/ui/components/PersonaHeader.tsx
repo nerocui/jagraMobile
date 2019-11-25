@@ -19,7 +19,7 @@ const PersonaHeader = (props: any) => {
 
     return (
         <StyledContainer style={styles.container} pose={pressed? 'pressed' : 'normal'}>
-            <TouchableWithoutFeedback onPressIn={() => SetPressed(true)} onPressOut={() => SetPressed(false)}>
+            <TouchableWithoutFeedback onPress={() => props.navigation.navigate('Settings')} onPressIn={() => SetPressed(true)} onPressOut={() => SetPressed(false)}>
                 <View style={styles.horizontalStack}>
                     <Avatar rounded title={props.user.username[0].toUpperCase()} />
                     <Text style={styles.greeting}>Hello {capitalizeFirstLetter(props.user.username)}</Text>
