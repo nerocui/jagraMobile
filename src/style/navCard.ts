@@ -1,4 +1,6 @@
 import { StyleSheet } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+
 
 const styles = StyleSheet.create({
     container: {
@@ -19,10 +21,11 @@ const styles = StyleSheet.create({
     iconContainer: {
         width: '100%',
         justifyContent: 'center',
-        marginTop: 15,
+        marginTop: wp('6%'),
     },
     icon: {
         alignSelf: 'center',
+        height: wp('25%'),
     }
 });
 

@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 const styles = StyleSheet.create({
     container: {
-        width: 150,
-        height: 150,
+        width: '45%',
+        height: wp('45%'),
         alignContent: "center",
         justifyContent: "center",
         marginTop: 30,
@@ -13,12 +14,12 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         shadowColor: "#000",
         shadowOffset:{
-            width: 2,
-            height: 3,
+            width: -50,
+            height: 11,
         },
-        shadowOpacity: 0.44,
-        shadowRadius: 3,
-        elevation: 3,
+        shadowOpacity: 0.55,
+        shadowRadius: 14.78,
+        elevation: 22,
     },
 });
 

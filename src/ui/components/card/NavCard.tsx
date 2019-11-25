@@ -8,7 +8,7 @@ type NavCardProps = {
     navigation: any,
     screen: string,
     image: ImageSourcePropType,
-}
+};
 
 const NavCard = (props: NavCardProps) => {
 

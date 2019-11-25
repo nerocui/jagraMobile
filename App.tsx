@@ -1,6 +1,6 @@
 import React from 'react';
 import { createAppContainer } from '@react-navigation/native';
-import { createStackNavigator } from 'react-navigation-stack';
+import { createStackNavigator, StackViewTransitionConfigs } from 'react-navigation-stack';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from 'react-redux';
 import LoginPage from './src/ui/screen/LoginScreen';
@@ -58,12 +58,8 @@ const AppNavigator = createStackNavigator({
 },
 {
   initialRouteName: 'Splash',
-  // transition: (
-  //   <Transition.Together>
-  //     <Transition.Out type="slide-top" durationMs={600} interpolation="easeOut" />
-  //     <Transition.In  type="slide-bottom" durationMs={600} interpolation="easeIn" />
-  //   </Transition.Together>
-  // )
+  mode: 'card',
+  transitionConfig: () => StackViewTransitionConfigs.SlideFromRightIOS,
 });
 
 const AppContainer = createAppContainer(AppNavigator);
