@@ -10,6 +10,7 @@ import { store, persistor } from './src/store';
 import SplashScreen from './src/ui/screen/SplashScreen';
 import DashboardScreen from './src/ui/screen/DashboardScreen';
 import SettingsScreen from './src/ui/screen/SettingsScreen';
+import OrganizationsScreen from './src/ui/screen/OrganizationsScreen';
 
 const AppNavigator = createStackNavigator({
   Splash: {
@@ -48,6 +49,12 @@ const AppNavigator = createStackNavigator({
       header: null,
     }
   },
+  Organizations: {
+    screen: OrganizationsScreen,
+    navigationOptions: {
+      header: null,
+    }
+  }
 },
 {
   initialRouteName: 'Splash',

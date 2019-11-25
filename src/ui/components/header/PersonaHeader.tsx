@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import { connect } from 'react-redux';
-import styles from '../../style/persona';
+import styles from '../../../style/persona';
 import { Avatar } from 'react-native-elements';
 import { State } from 'jagrastate/models';
 import { capitalizeFirstLetter } from 'jagrastate/utils/StringUtils';

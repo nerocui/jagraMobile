@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import BackHeader from '../components/BackHeader';
+import BackHeader from '../components/header/BackHeader';
 import styles from '../../style/screen';
 
 const SettingsScreen = (props: any) => {

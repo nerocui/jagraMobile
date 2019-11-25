@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import HeaderContainer from './HeaderContainer';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import { Icon } from 'react-native-elements';
-import styles from '../../style/backHeader';
+import styles from '../../../style/backHeader';
 
 const BackHeader = (props: any) => {
     const [pressed, SetPressed] = useState(false);
