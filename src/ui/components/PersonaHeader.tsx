@@ -6,19 +6,14 @@ import { Avatar } from 'react-native-elements';
 import { State } from 'jagrastate/models';
 import { capitalizeFirstLetter } from 'jagrastate/utils/StringUtils';
 import { Icon } from 'react-native-elements';
-import posed from 'react-native-pose';
-
-const StyledContainer = posed.View({
-    pressed: { opacity: 0.6, scale: 0.95 },
-    normal: { opacity: 1, scale: 1 },
-});
+import HeaderContainer from './HeaderContainer';
 
 const PersonaHeader = (props: any) => {
 
     const [pressed, SetPressed] = useState(false);
 
     return (
-        <StyledContainer style={styles.container} pose={pressed? 'pressed' : 'normal'}>
+        <HeaderContainer pressed={pressed}>
             <TouchableWithoutFeedback onPress={() => props.navigation.navigate('Settings')} onPressIn={() => SetPressed(true)} onPressOut={() => SetPressed(false)}>
                 <View style={styles.horizontalStack}>
                     <Avatar rounded title={props.user.username[0].toUpperCase()} />
@@ -26,7 +21,7 @@ const PersonaHeader = (props: any) => {
                     <Icon style={styles.greeting} name='keyboard-arrow-right'/>
                 </View>
             </TouchableWithoutFeedback>
-        </StyledContainer>
+        </HeaderContainer>
     );
 };
 
