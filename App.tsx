@@ -13,14 +13,9 @@ import SettingsScreen from './src/ui/screen/SettingsScreen';
 import OrganizationsScreen from './src/ui/screen/OrganizationsScreen';
 import { FetchBingDaily } from 'jagrastate/action';
 import { connect } from 'react-redux';
+import { createSwitchNavigator } from 'react-navigation';
 
-const AppNavigator = createStackNavigator({
-  Splash: {
-    screen: SplashScreen,
-    navigationOptions: {
-      header: null,
-    },
-  },
+const AuthStack = createStackNavigator({
   Login: {
     screen: LoginPage,
     navigationOptions: {
@@ -33,6 +28,13 @@ const AppNavigator = createStackNavigator({
       header: null,
     }
   },
+},{
+  initialRouteName: 'Login',
+  mode: 'card',
+  transitionConfig: () => StackViewTransitionConfigs.SlideFromRightIOS,
+});
+
+const AppNavigator = createStackNavigator({
   Loading: {
     screen: LoadingScreen,
     navigationOptions: {
@@ -59,9 +61,22 @@ const AppNavigator = createStackNavigator({
   }
 },
 {
-  initialRouteName: 'Splash',
+  initialRouteName: 'Dashboard',
   mode: 'card',
   transitionConfig: () => StackViewTransitionConfigs.SlideFromRightIOS,
+});
+
+const wrapperAppContainer = createSwitchNavigator({
+  Splash: {
+    screen: SplashScreen,
+    navigationOptions: {
+      header: null,
+    },
+  },
+  App: AppNavigator,
+  Auth: AuthStack,
+}, {
+  initialRouteName: 'Splash',
 });
 
 const AppContainer = createAppContainer(AppNavigator);

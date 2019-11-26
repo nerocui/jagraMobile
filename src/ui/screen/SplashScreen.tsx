@@ -13,9 +13,9 @@ const SplashScreen = (props: any) => {
     }
     useEffect(() => {
         if (props.loggedIn) {
-            props.navigation.navigate('Dashboard');
+            props.navigation.navigate('App');
         } else {
-            props.navigation.navigate('Login');
+            props.navigation.navigate('Auth');
         }
     }, [props.loggedIn]);
     return (
