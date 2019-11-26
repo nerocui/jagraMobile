@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         marginTop: 30,
         backgroundColor: "#f7f7f7",
+        opacity: 0,
         borderColor: "#faffff",
         borderWidth: 2,
         borderRadius: 20,

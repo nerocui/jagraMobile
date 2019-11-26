@@ -11,6 +11,8 @@ import SplashScreen from './src/ui/screen/SplashScreen';
 import DashboardScreen from './src/ui/screen/DashboardScreen';
 import SettingsScreen from './src/ui/screen/SettingsScreen';
 import OrganizationsScreen from './src/ui/screen/OrganizationsScreen';
+import { FetchBingDaily } from 'jagrastate/action';
+import { connect } from 'react-redux';
 
 const AppNavigator = createStackNavigator({
   Splash: {
@@ -64,12 +66,19 @@ const AppNavigator = createStackNavigator({
 
 const AppContainer = createAppContainer(AppNavigator);
 
-export default function App() {
+const App = (props: any) => {
+  props.FetchBingDaily();
+  return <AppContainer />;
+};
+
+const ConnectedApp = connect(null, {FetchBingDaily})(App);
+
+export default () => {
   return (
     // Redux: Global Store
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <AppContainer />
+        <ConnectedApp />
       </PersistGate>
     </Provider>
   );
